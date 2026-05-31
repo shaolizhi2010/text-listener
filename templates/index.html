@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>书可听</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="weixin-style">
+    <div class="container">
+        <header class="header">
+            <h1>📖 书可听</h1>
+            <p>阅读文本，聆听声音</p>
+        </header>
+
+        <main class="main-content">
+            <!-- 上传区域 -->
+            <section class="upload-section">
+                <div class="upload-box">
+                    <h2>上传文本或文件</h2>
+                    
+                    <!-- 文本输入 -->
+                    <div class="input-group">
+                        <textarea id="textInput" placeholder="粘贴文本或上传文件..." rows="6"></textarea>
+                    </div>
+                    
+                    <!-- 文件上传 -->
+                    <div class="file-upload-group">
+                        <label class="file-upload-btn">
+                            📁 选择文件
+                            <input type="file" id="fileInput" 
+                                   accept=".txt,.pdf,.epub,.doc,.docx"
+                                   style="display: none;">
+                        </label>
+                        <span id="fileName" class="file-name"></span>
+                    </div>
+                    
+                    <!-- 翻译选项 -->
+                    <div class="translation-group">
+                        <label>翻译语言：</label>
+                        <select id="targetLang">
+                            <option value="none">不翻译</option>
+                            <option value="zh">翻译成中文</option>
+                            <option value="en">翻译成英文</option>
+                        </select>
+                    </div>
+                    
+                    <!-- 上传按钮 -->
+                    <button id="uploadBtn" class="upload-btn">上传</button>
+                </div>
+            </section>
+
+            <!-- 文件列表 -->
+            <section class="file-list-section">
+                <h2>📚 我的文件</h2>
+                <div id="fileListContainer" class="file-list">
+                    <div class="loading">加载中...</div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>
