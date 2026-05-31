@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阅读 - 书可听</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="weixin-style">
+    <div class="container">
+        <header class="header">
+            <button class="back-btn" onclick="history.back()">← 返回</button>
+            <h1>阅读</h1>
+        </header>
+
+        <main class="main-content">
+            <!-- 语言选择 -->
+            <div id="languageOptions" class="language-options" style="display: none;">
+                <button class="lang-btn active" data-lang="bilingual">双语</button>
+                <button class="lang-btn" data-lang="zh">中文</button>
+                <button class="lang-btn" data-lang="en">英文</button>
+            </div>
+
+            <!-- 文本内容 -->
+            <div id="textContent" class="text-content">
+                <div class="loading">加载中...</div>
+            </div>
+
+            <!-- 单词查询弹出框 -->
+            <div id="wordPopup" class="word-popup" style="display: none;">
+                <div class="word-popup-content">
+                    <span id="popupWord" class="popup-word"></span>
+                    <span id="popupMeaning" class="popup-meaning"></span>
+                    <button onclick="closeWordPopup()">×</button>
+                </div>
+            </div>
+
+            <!-- 播放控制 -->
+            <div class="player-controls">
+                <button id="playBtn" class="play-btn">▶ 播放</button>
+                <button id="pauseBtn" class="pause-btn" style="display: none;">⏸ 暂停</button>
+                <span id="playerStatus" class="player-status">准备就绪</span>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/reader.js') }}"></script>
+</body>
+</html>
